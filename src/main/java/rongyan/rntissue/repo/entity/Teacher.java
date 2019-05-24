@@ -7,7 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "XF_TEACHER")
+@Table(name = "RY_TEACHER")
 public class Teacher extends AbstractPersistable<Integer> {
 
     @Column

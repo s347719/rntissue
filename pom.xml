@@ -52,12 +52,20 @@
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.1.15</version>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.46</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
+        <finalName>rntissue</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
