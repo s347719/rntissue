@@ -12,10 +12,10 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        String[] exAdmin = new String[] { "/user/**", "/login/**" };
         registry.addInterceptor(new TokenInterceptor())
                 .addPathPatterns("/**")
-                .excludePathPatterns("/login")
-                .excludePathPatterns("/sign");
+                .excludePathPatterns(exAdmin);
     }
 
 }
