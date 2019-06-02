@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import com.alibaba.fastjson.JSONObject;
-import rongyan.rntissue.repo.httpModel.ApiResponse;
-import rongyan.rntissue.repo.httpModel.ApiResponseEnum;
-import rongyan.rntissue.repo.util.ApiResponseUtil;
+import rongyan.rntissue.repo.httpModel.ResultResponse;
+import rongyan.rntissue.repo.httpModel.ResultResponseEnum;
+import rongyan.rntissue.repo.util.ResultResponseUtil;
 import rongyan.rntissue.repo.util.JwtUtil;
 
 public class TokenInterceptor implements HandlerInterceptor {
@@ -26,8 +26,8 @@ public class TokenInterceptor implements HandlerInterceptor {
                 return true;
             }
         }
-        ApiResponse apiResponse = ApiResponseUtil.getApiResponse(ApiResponseEnum.AUTH_ERROR);
-        responseMessage(response,response.getWriter(),apiResponse);
+        ResultResponse resultResponse = ResultResponseUtil.getApiResponse(ResultResponseEnum.AUTH_ERROR);
+        responseMessage(response,response.getWriter(), resultResponse);
         return false;
     }
 
@@ -46,11 +46,11 @@ public class TokenInterceptor implements HandlerInterceptor {
      *
      * @param response
      * @param out
-     * @param apiResponse
+     * @param resultResponse
      */
-    private void responseMessage(HttpServletResponse response, PrintWriter out, ApiResponse apiResponse) {
+    private void responseMessage(HttpServletResponse response, PrintWriter out, ResultResponse resultResponse) {
         response.setContentType("application/json; charset=utf-8");
-        out.print(JSONObject.toJSONString(apiResponse));
+        out.print(JSONObject.toJSONString(resultResponse));
         out.flush();
         out.close();
     }
