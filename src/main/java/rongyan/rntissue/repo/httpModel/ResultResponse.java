@@ -2,9 +2,9 @@ package rongyan.rntissue.repo.httpModel;
 
 public class ResultResponse {
 
-    private int errCode = 0;
+    private int code = 0;
 
-    private String errMsg;
+    private String msg;
 
     private Object data;
 
@@ -18,24 +18,24 @@ public class ResultResponse {
     }
 
     public ResultResponse(ResultResponseEnum resultResponseEnum){
-        this.errCode = resultResponseEnum.getErrCode();
-        this.errMsg = resultResponseEnum.getErrMsg();
+        this.code = resultResponseEnum.getCode();
+        this.msg = resultResponseEnum.getMsg();
     }
 
-    public int getErrCode() {
-        return errCode;
+    public int getCode() {
+        return code;
     }
 
-    public void setErrCode(int errCode) {
-        this.errCode = errCode;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getErrMsg() {
-        return errMsg;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setErrMsg(String errMsg) {
-        this.errMsg = errMsg;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 
     public Object getData() {
@@ -49,8 +49,8 @@ public class ResultResponse {
     @Override
     public String toString() {
         return "ResultResponse{" +
-                "errCode=" + errCode +
-                ", errMsg='" + errMsg + '\'' +
+                "code=" + code +
+                ", msg='" + msg + '\'' +
                 ", data=" + data +
                 '}';
     }

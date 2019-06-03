@@ -16,29 +16,29 @@ public enum ResultResponseEnum {
     AUTH_ERROR(10100,"认证失败");
 
 
-    private int errCode = 0;
+    private int code = 0;
 
-    private String errMsg;
+    private String msg;
 
 
-    private ResultResponseEnum(int errCode, String errMsg) {
-        this.errCode = errCode;
-        this.errMsg = errMsg;
+    private ResultResponseEnum(int errCode, String msg) {
+        this.code = errCode;
+        this.msg = msg;
     }
 
-    public int getErrCode() {
-        return errCode;
+    public int getCode() {
+        return code;
     }
 
-    public void setErrCode(int errCode) {
-        this.errCode = errCode;
+    public void setCode(int code) {
+        this.code = code;
     }
 
-    public String getErrMsg() {
-        return errMsg;
+    public String getMsg() {
+        return msg;
     }
 
-    public void setErrMsg(String errMsg) {
-        this.errMsg = errMsg;
+    public void setMsg(String msg) {
+        this.msg = msg;
     }
 }

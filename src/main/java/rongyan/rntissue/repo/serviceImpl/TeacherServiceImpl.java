@@ -1,9 +1,10 @@
-package rongyan.rntissue.repo.service;
+package rongyan.rntissue.repo.serviceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rongyan.rntissue.repo.dao.TeacherDao;
 import rongyan.rntissue.repo.entity.Teacher;
+import rongyan.rntissue.repo.service.TeacherService;
 
 import javax.transaction.Transactional;
 

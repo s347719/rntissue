@@ -1,16 +1,17 @@
 package rongyan.rntissue.repo.interceptor;
 
+import com.alibaba.fastjson.JSONObject;
+import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
+import rongyan.rntissue.repo.httpModel.ResultResponse;
+import rongyan.rntissue.repo.httpModel.ResultResponseEnum;
+import rongyan.rntissue.repo.httpModel.ResultResponseUtil;
+import rongyan.rntissue.repo.util.JwtUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
-import com.alibaba.fastjson.JSONObject;
-import rongyan.rntissue.repo.httpModel.ResultResponse;
-import rongyan.rntissue.repo.httpModel.ResultResponseEnum;
-import rongyan.rntissue.repo.util.ResultResponseUtil;
-import rongyan.rntissue.repo.util.JwtUtil;
 
 public class TokenInterceptor implements HandlerInterceptor {
 
@@ -19,15 +20,20 @@ public class TokenInterceptor implements HandlerInterceptor {
         response.setCharacterEncoding("utf-8");
         String token = request.getHeader("access_token");
         //token不存在
-        if (null != token) {
+        if (StringUtils.isEmpty(token)) {
+            ResultResponse resultResponse = ResultResponseUtil.getApiResponse(ResultResponseEnum.SESSION_ERROR);
+            responseMessage(response, response.getWriter(), resultResponse);
+            return false;
+        }else {
             //验证token是否正确
             boolean result = JwtUtil.verify(token);
             if (result) {
                 return true;
+            }else {
+                ResultResponse resultResponse = ResultResponseUtil.getApiResponse(ResultResponseEnum.AUTH_ERROR);
+                responseMessage(response, response.getWriter(), resultResponse);
             }
         }
-        ResultResponse resultResponse = ResultResponseUtil.getApiResponse(ResultResponseEnum.AUTH_ERROR);
-        responseMessage(response,response.getWriter(), resultResponse);
         return false;
     }
 
