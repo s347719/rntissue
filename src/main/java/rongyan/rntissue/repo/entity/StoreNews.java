@@ -15,6 +15,7 @@ import java.sql.Date;
 @Table(name = "t_store_news")
 public class StoreNews extends AbstractPersistable<Integer> {
 
+//    推广消息
     //类型
     @Column
     private String fCode;
