@@ -5,10 +5,10 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
-@Table(name = "tstore_teacher")
+@Table(name = "t_store_teacher")
 public class StoreTeacher extends AbstractPersistable<Integer> {
 
 //    店内老师表
@@ -17,31 +17,31 @@ public class StoreTeacher extends AbstractPersistable<Integer> {
     @Column
     private String fCompanyID;
 
-    //    名称
+    //    名称 可修改
     @Column
     private String fName;
 
-    //    昵称
+    //    昵称  可修改
     @Column
     private String fDisplayName;
 
-    //    头像
+    //    头像 可修改
     @Column
     private String fPhotoUrl;
 
-    //    职称
+    //    职称v  可修改
     @Column
     private String fNumber;
 
-    //    说明
+    //    说明  可修改
     @Column
     private String fRemark;
 
-    //    状态
+    //    状态  可修改
     @Column
-    private int fState;
+    private int fState = 1;
 
-    //    联系电话
+    //    联系电话  可修改
     @Column
     private String fTell;
 

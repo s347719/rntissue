@@ -13,6 +13,6 @@ public interface StoreTeacherService {
 
     List<StoreTeacher> findAll();
 
-
+    boolean updateOrSave(StoreTeacher storeTeacher);
 
 }

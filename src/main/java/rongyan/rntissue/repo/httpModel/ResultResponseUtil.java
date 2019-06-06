@@ -1,6 +1,5 @@
 package rongyan.rntissue.repo.httpModel;
 
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
 
@@ -12,7 +11,7 @@ public class ResultResponseUtil {
      * @param data
      * @return
      */
-    public static ResultResponse getApiTokenResponse(Object data) {
+    public static String getApiTokenResponse(Object data) {
         return getApiResponse(data, ResultResponseEnum.TOKEN_SUCCESS.getCode(), ResultResponseEnum.TOKEN_SUCCESS.getMsg());
     }
 
@@ -23,7 +22,7 @@ public class ResultResponseUtil {
      * @param msg
      * @return
      */
-    public static ResultResponse getApiResponse(int code, String msg) {
+    public static String getApiResponse(int code, String msg) {
         return getApiResponse(null, code, msg);
     }
 
@@ -33,20 +32,21 @@ public class ResultResponseUtil {
      * @param resultResponseEnum
      * @return
      */
-    public static ResultResponse getApiResponse(ResultResponseEnum resultResponseEnum) {
+    public static String getApiResponse(ResultResponseEnum resultResponseEnum) {
         return getApiResponse(resultResponseEnum.getCode(), resultResponseEnum.getMsg());
     }
 
 
-    public static ResultResponse getApiResponse(Object data, int code, String msg) {
+    public static String getApiResponse(Object data, int code, String msg) {
         ResultResponse resultResponse = new ResultResponse(data);
         resultResponse.setCode(code);
         resultResponse.setMsg(msg);
-        return resultResponse;
+        return JSONObject.toJSONString(resultResponse);
     }
 
     /**
      * 返回成功对象 code为200
+     *
      * @param object 内容
      * @return alibaba 的String
      */
@@ -56,5 +56,6 @@ public class ResultResponseUtil {
         resultResponse.setMsg(ResultResponseEnum.SERVER_SUCCESS.getMsg());
         return JSONObject.toJSONString(resultResponse, SerializerFeature.WriteMapNullValue);
     }
+
 
 }
