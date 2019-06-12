@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "vip_card")
 public class Card extends AbstractPersistable<Integer> {
 
-    //    用户id关联的是电话号码
+    //    用户id
     @Column
     private String fUserID;
 
@@ -34,6 +34,18 @@ public class Card extends AbstractPersistable<Integer> {
     //    是否使用
     @Column
     private int fIsUseing = 0;
+
+    //关联的每张卡所添加的特权项目
+    @Column
+    private String libertyIds;
+
+    public String getLibertyIds() {
+        return libertyIds;
+    }
+
+    public void setLibertyIds(String libertyIds) {
+        this.libertyIds = libertyIds;
+    }
 
     public String getfUserID() {
         return fUserID;

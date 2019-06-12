@@ -2,7 +2,8 @@
 SQLyog Professional v12.08 (64 bit)
 MySQL - 5.6.44 : Database - rongyan
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -64,7 +65,7 @@ CREATE TABLE `t_order_list` (
   `fSPrice` bigint(20) DEFAULT NULL COMMENT '原始价格',
   `fCurrenPrice` bigint(20) DEFAULT NULL COMMENT '当前价格',
   `fFHPrice` bigint(20) DEFAULT NULL COMMENT '利润价格',
-  `fIsDelete` int(11) DEFAULT NULL COMMENT '是否有效0-有效 1-删除 2-已经消费',
+  `f_is_delete` int(11) DEFAULT NULL COMMENT '是否有效0-有效 1-删除 2-已经消费',
   `fPicUrl` varchar(300) DEFAULT NULL COMMENT '项目图片地址',
   `fRemark` varchar(600) DEFAULT NULL COMMENT '项目说明',
   `f_curren_price` int(11) DEFAULT NULL,
@@ -92,10 +93,10 @@ CREATE TABLE `t_peoject_list` (
   `fYSPrice` bigint(20) DEFAULT NULL COMMENT '原始价格',
   `fCurrenPrice` bigint(20) DEFAULT NULL COMMENT '当前价格',
   `fFHPrice` bigint(20) DEFAULT NULL COMMENT '利润',
-  `fIsDelete` int(11) DEFAULT NULL COMMENT '是否有效',
+  `f_is_delete` int(11) DEFAULT NULL COMMENT '是否有效',
   `fPicUrl` varchar(300) DEFAULT NULL COMMENT '项目图片地址',
   `fRemark` varchar(600) DEFAULT NULL COMMENT '项目说明',
-  `fState` int(11) DEFAULT NULL COMMENT '状态',
+  `f_state` int(11) DEFAULT NULL COMMENT '状态',
   `fCreatetime` datetime DEFAULT NULL COMMENT '添加时间',
   `fUpdateTime` datetime DEFAULT NULL COMMENT '修改时间',
   PRIMARY KEY (`id`)
@@ -206,9 +207,9 @@ DROP TABLE IF EXISTS `tvip_liberty`;
 
 CREATE TABLE `tvip_liberty` (
   `id` bigint(36) NOT NULL,
-  `fUserLevel` varchar(50) DEFAULT NULL COMMENT '用户等级',
+  `f_user_level` varchar(50) DEFAULT NULL COMMENT '用户等级',
   `fName` varchar(10) DEFAULT NULL COMMENT '特权类型名称',
-  `fIsDelete` int(11) DEFAULT NULL COMMENT '是否删除',
+  `f_is_delete` int(11) DEFAULT NULL COMMENT '是否删除',
   `fCreateTime` datetime DEFAULT NULL COMMENT '添加时间',
   `fEndTime` datetime DEFAULT NULL COMMENT '有效期',
   `fCount` int(11) DEFAULT NULL COMMENT '次数',
@@ -224,21 +225,21 @@ DROP TABLE IF EXISTS `tvip_user`;
 
 CREATE TABLE `tvip_user` (
   `id` bigint(36) NOT NULL,
-  `fCompanyID` varchar(36) DEFAULT NULL COMMENT '企业id',
+  `f_companyid` varchar(36) DEFAULT NULL COMMENT '企业id',
   `f_wx_openId` varchar(100) DEFAULT NULL COMMENT '关联的微信openId',
   `f_wx_name` varchar(100) DEFAULT NULL COMMENT '关联的微信名称',
-  `fUserName` varchar(50) DEFAULT NULL COMMENT '用户名',
-  `fPassword` varchar(50) DEFAULT NULL COMMENT '密码',
-  `fUserTel` varchar(20) DEFAULT NULL COMMENT '用户电话',
-  `fUserLevel` int(11) DEFAULT NULL COMMENT '用户等级 0-第一级 1-第二级 2-第三级',
+  `f_user_name` varchar(50) DEFAULT NULL COMMENT '用户名',
+  `f_password` varchar(50) DEFAULT NULL COMMENT '密码',
+  `f_user_tel` varchar(20) DEFAULT NULL COMMENT '用户电话',
+  `f_user_level` int(11) DEFAULT NULL COMMENT '用户等级 0-第一级 1-第二级 2-第三级',
   `fGDType` varchar(50) DEFAULT NULL COMMENT '股东类型',
-  `fvipCardNo` varchar(20) DEFAULT NULL COMMENT 'vipCard邀请码',
-  `fPhotoUrl` varchar(300) DEFAULT NULL COMMENT '头像',
-  `fParentID` varchar(50) DEFAULT NULL COMMENT '父级Id',
-  `fState` int(11) DEFAULT NULL COMMENT '状态',
+  `fvip_card_no` varchar(20) DEFAULT NULL COMMENT 'vipCard邀请码',
+  `f_photo_url` varchar(300) DEFAULT NULL COMMENT '头像',
+  `f_parentid` varchar(50) DEFAULT NULL COMMENT '父级Id',
+  `f_state` int(11) DEFAULT NULL COMMENT '状态',
   `fCreateTime` datetime DEFAULT NULL COMMENT '添加时间',
-  `fIsDelete` int(11) DEFAULT NULL COMMENT '是否删除',
-  `fMoney` bigint(20) DEFAULT NULL COMMENT '入股金额',
+  `f_is_delete` int(11) DEFAULT NULL COMMENT '是否删除',
+  `f_money` bigint(20) DEFAULT NULL COMMENT '入股金额',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户信息';
 
@@ -251,7 +252,7 @@ DROP TABLE IF EXISTS `tvip_user_copy_liberty`;
 CREATE TABLE `tvip_user_copy_liberty` (
   `id` char(36) NOT NULL,
   `fUserID` char(36) DEFAULT NULL COMMENT '用户id',
-  `fUserLevel` varchar(50) DEFAULT NULL COMMENT '用户等级',
+  `f_user_level` varchar(50) DEFAULT NULL COMMENT '用户等级',
   `fName` varchar(10) DEFAULT NULL COMMENT '特权类型名称',
   `fEndTime` datetime DEFAULT NULL COMMENT '有效期',
   `fCreateTime` datetime DEFAULT NULL COMMENT '添加时间',
