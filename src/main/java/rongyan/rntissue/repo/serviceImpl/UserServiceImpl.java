@@ -25,4 +25,16 @@ public class UserServiceImpl implements UserService {
     public List<User> findAll() {
         return userDao.findAll();
     }
+
+    @Override
+    public boolean isExits(String name, String password) {
+        User user = userDao.findByNameAndPassword(name, password);
+        return user != null;
+    }
+
+    @Override
+    public boolean isExitsAdmin(String name, String password) {
+        User user = userDao.findAdminByNameAndPassword(name, password);
+        return user != null;
+    }
 }

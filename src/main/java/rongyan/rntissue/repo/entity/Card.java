@@ -11,9 +11,9 @@ import javax.persistence.Table;
 @Table(name = "vip_card")
 public class Card extends AbstractPersistable<Integer> {
 
-    //    用户id
+    //    用户电话
     @Column
-    private String fUserID;
+    private String fUserTel;
 
     //    卡类别对应的则是用户等级第四级不包括
     @Column
@@ -47,12 +47,12 @@ public class Card extends AbstractPersistable<Integer> {
         this.libertyIds = libertyIds;
     }
 
-    public String getfUserID() {
-        return fUserID;
+    public String getfUserTel() {
+        return fUserTel;
     }
 
-    public void setfUserID(String fUserID) {
-        this.fUserID = fUserID;
+    public void setfUserTel(String fUserTel) {
+        this.fUserTel = fUserTel;
     }
 
     public int getfCardType() {

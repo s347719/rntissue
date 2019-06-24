@@ -181,7 +181,7 @@ CREATE TABLE `tvip_card` (
   `fVipCardNo` varchar(20) DEFAULT NULL COMMENT '卡号',
   `fIsLQ` int(11) DEFAULT NULL COMMENT '领取情况',
   `fVipCardNoID` char(32) DEFAULT NULL COMMENT 'vip卡号提取码',
-  `fUserID` char(36) DEFAULT NULL COMMENT '用户id',
+  `fUserTel` char(36) DEFAULT NULL COMMENT '用户电话',
   `fIsUseing` int(11) DEFAULT NULL COMMENT '是否使用',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='vip卡表';
@@ -251,7 +251,7 @@ DROP TABLE IF EXISTS `tvip_user_copy_liberty`;
 
 CREATE TABLE `tvip_user_copy_liberty` (
   `id` char(36) NOT NULL,
-  `fUserID` char(36) DEFAULT NULL COMMENT '用户id',
+  `fUserTel` char(36) DEFAULT NULL COMMENT '用户id',
   `f_user_level` varchar(50) DEFAULT NULL COMMENT '用户等级',
   `fName` varchar(10) DEFAULT NULL COMMENT '特权类型名称',
   `fEndTime` datetime DEFAULT NULL COMMENT '有效期',

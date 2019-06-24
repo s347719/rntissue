@@ -12,4 +12,8 @@ public interface UserService {
 
 
     List<User> findAll();
+
+    boolean isExits(String name ,String password);
+
+    boolean isExitsAdmin(String name ,String password);
 }

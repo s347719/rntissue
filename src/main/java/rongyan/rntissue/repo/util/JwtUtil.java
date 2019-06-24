@@ -15,14 +15,14 @@ import java.util.Map;
 public class JwtUtil {
 
     /**
-     * 过期时间一天，
+     * 过期时间30天，
      * TODO 正式运行时修改为15分钟
      */
-    private static final long EXPIRE_TIME = 24 * 60 * 60 * 1000;
+    private static final long EXPIRE_TIME = 30*24*60*60*1000L;
     /**
      * token私钥
      */
-    private static final String TOKEN_SECRET = "a826a447-99e0-47a5-9088-a291465d79dc";
+    private static final String TOKEN_SECRET = "rongyan.school.sichuan";
 
     /**
      * 校验token是否正确
@@ -62,22 +62,22 @@ public class JwtUtil {
      * @param token
      * @return
      */
-    public static String getUserId(String token) {
+    public static String getPassWord(String token) {
         try {
             DecodedJWT jwt = JWT.decode(token);
-            return jwt.getClaim("userId").asString();
+            return jwt.getClaim("password").asString();
         } catch (JWTDecodeException e) {
             return null;
         }
     }
 
     /**
-     * 生成签名,15min后过期
+     * 生成签名,min后过期
      *
      * @param username 用户名
      * @return 加密的token
      */
-    public static String sign(String username, String userId) {
+    public static String sign(String username, String password) {
         try {
 //            过期时间
             Date date = new Date(System.currentTimeMillis() + EXPIRE_TIME);
@@ -91,7 +91,7 @@ public class JwtUtil {
             return JWT.create()
                     .withHeader(header)
                     .withClaim("loginName", username)
-                    .withClaim("userId", userId)
+                    .withClaim("password", password)
                     .withExpiresAt(date)
                     .sign(algorithm);
         } catch (UnsupportedEncodingException e) {
