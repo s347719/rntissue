@@ -37,4 +37,10 @@ public class UserServiceImpl implements UserService {
         User user = userDao.findAdminByNameAndPassword(name, password);
         return user != null;
     }
+
+    @Override
+    public boolean isExitsByWX(String openid) {
+        User user = userDao.findByF_wx_openId(openid);
+        return user != null;
+    }
 }

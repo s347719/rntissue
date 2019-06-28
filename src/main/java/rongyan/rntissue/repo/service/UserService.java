@@ -16,4 +16,6 @@ public interface UserService {
     boolean isExits(String name ,String password);
 
     boolean isExitsAdmin(String name ,String password);
+
+    boolean isExitsByWX(String openid);
 }

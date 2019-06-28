@@ -23,4 +23,9 @@ public interface UserDao extends PagingAndSortingRepository<User, Integer> {
 
     @Query("SELECT u FROM User u where u.f_user_name = ?1 and u.f_password= ?2 and u.f_user_level=1")
     User findAdminByNameAndPassword(String name,String password);
+
+    @Query("SELECT u FROM User u where u.f_wx_openId = ?1")
+    User findByF_wx_openId(String openid);
+
+
 }

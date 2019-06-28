@@ -56,6 +56,22 @@ public class ResultResponseUtil {
         resultResponse.setMsg(ResultResponseEnum.SERVER_SUCCESS.getMsg());
         return JSONObject.toJSONString(resultResponse, SerializerFeature.WriteMapNullValue);
     }
-
+    /**
+     * 返回成功对象 code为200
+     *
+     * @return alibaba 的String
+     */
+    public static String success() {
+        ResultResponse resultResponse = new ResultResponse();
+        resultResponse.setCode(ResultResponseEnum.SERVER_SUCCESS.getCode());
+        resultResponse.setMsg(ResultResponseEnum.SERVER_SUCCESS.getMsg());
+        return JSONObject.toJSONString(resultResponse, SerializerFeature.WriteMapNullValue);
+    }
+    public static String error() {
+        ResultResponse resultResponse = new ResultResponse();
+        resultResponse.setCode(ResultResponseEnum.REQUEST_ERROR.getCode());
+        resultResponse.setMsg(ResultResponseEnum.REQUEST_ERROR.getMsg());
+        return JSONObject.toJSONString(resultResponse, SerializerFeature.WriteMapNullValue);
+    }
 
 }

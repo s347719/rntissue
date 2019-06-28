@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh" ng-app="indexModule">
+<html lang="zh" ng-app="starter" >
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
@@ -7,16 +7,17 @@
     <title>若依管理系统</title>
     <meta name="keywords" content="若依,若依开源,若依框架,若依系统,ruoyi">
     <meta name="description" content="若依基于SpringBoot2.0的权限管理系统 易读易懂、界面简洁美观。 核心技术采用Spring、MyBatis、Shiro没有任何其它重度依赖">
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="../static/css/font-awesome.min.css" rel="stylesheet"/>
-    <link href="../static/css/style.css" rel="stylesheet"/>
-    <link href="../static/css/ionic.css" rel="stylesheet"/>
-    <link href="../static/css/login.min.css" rel="stylesheet"/>
-    <link href="../static/ruoyi/css/ry-ui.css" rel="stylesheet"/>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="static/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="static/css/style.css" rel="stylesheet"/>
+    <link href="static/css/animate.css" rel="stylesheet"/>
+    <link href="static/css/ionic.css" rel="stylesheet"/>
+    <link href="static/css/login.min.css" rel="stylesheet"/>
+    <link href="static/ruoyi/css/ry-ui.css" rel="stylesheet"/>
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
-    <link rel="shortcut icon" href="../static/favicon.ico"/>
+    <link rel="shortcut icon" href="static/favicon.ico"/>
     <script>
         if (window.top !== window.self) {
             window.top.location = window.location
@@ -24,67 +25,27 @@
         ;
     </script>
     <!-- 全局js -->
-    <script src="../static/js/jquery.min.js"></script>
-    <script src="../static/js/ionic.bundle.js"></script>
-    <script src="../static/js/ionic.js"></script>
-    <script src="../static/js/ionic-angular.js"></script>
-    <script src="../static/js/bootstrap.min.js"></script>
-    <script src="../static/js/angular.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/ionic.bundle.js"></script>
+    <script src="static/js/ionic.js"></script>
+    <script src="static/js/ionic-angular.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/angular-ui-router.min.js"></script>
+    <script src="static/js/angular.js"></script>
     <!-- 验证插件 -->
-    <script src="../static/libs/validate/jquery.validate.min.js"
+    <script src="static/libs/validate/jquery.validate.min.js"
     ></script>
-    <script src="../static/libs/validate/messages_zh.min.js"></script>
-    <script src="../static/libs/layer/layer.min.js"></script>
-    <script src="../static/libs/blockUI/jquery.blockUI.js"></script>
-    <script src="../static/ruoyi/login.js"></script>
+    <script src="static/libs/validate/messages_zh.min.js"></script>
+    <script src="static/libs/layer/layer.min.js"></script>
+    <script src="static/libs/blockUI/jquery.blockUI.js"></script>
+    <script src="prepare.js"></script>
+    <script src="home/home.js"></script>
+
 </head>
 
-<body class="signin" ng-controller="loginCtrl">
-
-<div class="signinpanel">
-    <div class="row">
-        <div class="col-sm-7">
-            <div class="signin-info">
-                <div class="logopanel m-b">
-                    <h1><img alt="[ 若依 ]" src="../static/images/ruoyi.png"></h1>
-                </div>
-                <div class="m-b"></div>
-                <h4>欢迎使用 <strong>若依 后台管理系统</strong></h4>
-                <ul class="m-b">
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> SpringBoot</li>
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Mybatis</li>
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Shiro</li>
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Thymeleaf</li>
-                    <li><i class="fa fa-arrow-circle-o-right m-r-xs"></i> Bootstrap</li>
-                </ul>
-                <strong>还没有账号？ <a href="#">立即注册&raquo;</a></strong>
-            </div>
-        </div>
-        <div class="col-sm-5">
-            <form id="signupForm" name="signupForm">
-                <p class="m-t-md">你若不离不弃，我必生死相依</p>
-                <input type="text" name="username" class="form-control uname" placeholder="用户名"
-                       ng-model="loginInfo.username"/>
-                <input type="password" name="password" class="form-control pword" placeholder="密码"
-                       ng-model="loginInfo.password"/>
-                <button class="btn btn-success btn-block" id="btnSubmit" ng-click="login()" data-loading="正在验证登录，请稍后...">登录</button>
-                <div class="padding" ng-show="!loginErr">
-                    <span class="label label-danger text-center" ng-bind="signupForm.username.$error.required && signupForm.username.$dirty?'请输入登录账号！':''"></span>
-                    <span class="label label-danger text-center" ng-bind="signupForm.username.$error.pattern && signupForm.username.$dirty?'用户名不能包含“:”号！':''"></span>
-                    <span class="label label-danger text-center" ng-bind="signupForm.password.$error.required && signupForm.password.$dirty?'请输入密码！':''"></span>
-                    <span class="label label-danger text-center" ng-bind="signupForm.password.$error.maxlength && signupForm.password.$dirty?'密码长度不能大于20个字符！':''"></span>
-                    <span class="label label-danger text-center" ng-show="loginErr&&loginErr != ''" ng-bind="loginErr"></span>
-                </div>
-                <div class="padding" ng-show="loginErr">
-                    <span class="label label-danger text-center" ng-bind="loginErr"></span>
-                </div>
-            </form>
-
-        </div>
-
-    </div>
-
-</div>
+<body>
+<div ui-view></div>
 
 </body>
+
 </html>

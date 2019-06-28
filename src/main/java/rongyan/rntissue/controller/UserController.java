@@ -8,6 +8,7 @@ import rongyan.rntissue.repo.entity.User;
 import rongyan.rntissue.repo.httpModel.ResultResponseUtil;
 import rongyan.rntissue.repo.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
@@ -31,7 +32,17 @@ public class UserController {
         return ResultResponseUtil.success(all);
     }
 
-
+    //根据等级来查询所有人
+    @RequestMapping(value = "/user")
+    public String isExits(HttpServletRequest request) {
+        String openid = request.getParameter("openid");
+        boolean exitsByWX = userService.isExitsByWX(openid);
+        if (exitsByWX) {
+            return ResultResponseUtil.success();
+        } else {
+            return ResultResponseUtil.error();
+        }
+    }
 
 
 }

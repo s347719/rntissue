@@ -1,0 +1,31 @@
+<div class="signinpanel">
+    <div class="row">
+        <div class="col-sm-5 col-sm-offset-7">
+            <form id="signupForm" name="signupForm">
+                <p class="m-t-md">你若不离不弃，我必生死相依</p>
+                <input type="text" name="username" class="form-control uname" placeholder="用户名"
+                       ng-model="loginInfo.username"/>
+                <input type="password" name="password" class="form-control pword" placeholder="密码"
+                       ng-model="loginInfo.password"/>
+                <button class="btn btn-success btn-block" id="btnSubmit" ng-click="login()"
+                        data-loading="正在验证登录，请稍后...">登录
+                </button>
+                <div class="padding" ng-show="!loginErr">
+                    <span class="label label-danger text-center"
+                          ng-bind="signupForm.username.$error.required && signupForm.username.$dirty?'请输入登录账号！':''"></span>
+                    <span class="label label-danger text-center"
+                          ng-bind="signupForm.username.$error.pattern && signupForm.username.$dirty?'用户名不能包含“:”号！':''"></span>
+                    <span class="label label-danger text-center"
+                          ng-bind="signupForm.password.$error.required && signupForm.password.$dirty?'请输入密码！':''"></span>
+                    <span class="label label-danger text-center"
+                          ng-bind="signupForm.password.$error.maxlength && signupForm.password.$dirty?'密码长度不能大于20个字符！':''"></span>
+                    <span class="label label-danger text-center" ng-show="loginErr&&loginErr != ''"
+                          ng-bind="loginErr"></span>
+                </div>
+                <div class="padding" ng-show="loginErr">
+                    <span class="label label-danger text-center" ng-bind="loginErr"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
