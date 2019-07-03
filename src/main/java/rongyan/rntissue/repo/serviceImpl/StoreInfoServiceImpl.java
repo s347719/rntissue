@@ -17,6 +17,6 @@ public class StoreInfoServiceImpl implements StoreInfoService {
 
     @Override
     public StoreInfo getInfo() {
-        return storeInfoDao.findDistinctTopByIdAfter(0);
+        return storeInfoDao.findDistinctTopByIdAfter();
     }
 }

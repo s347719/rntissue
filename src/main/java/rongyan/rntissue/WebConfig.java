@@ -12,7 +12,8 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        String[] exAdmin = new String[] { "/**", "/login/**" };
+//        String[] exAdmin = new String[] { "/**", "/login/**" };
+        String[] exAdmin = new String[] { "/**"};
         registry.addInterceptor(new TokenInterceptor())
                 .addPathPatterns("/**")
                 .excludePathPatterns(exAdmin);

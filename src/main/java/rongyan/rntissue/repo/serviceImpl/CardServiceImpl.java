@@ -18,7 +18,7 @@ public class CardServiceImpl implements CardService {
 
     @Override
     public List<Card> findAllByid(String tell) {
-        return cardDao.findAllByFUserIDEqualsOrderByFIsUsedDesc(tell);
+        return cardDao.findCardByTel(tell);
     }
 
     @Override

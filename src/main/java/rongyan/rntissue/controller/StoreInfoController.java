@@ -15,7 +15,7 @@ public class StoreInfoController {
     @Autowired
     private StoreInfoService storeInfoService;
 
-    @RequestMapping()
+    @RequestMapping(value = "/info")
     public String getStoreInfo() {
         StoreInfo info = storeInfoService.getInfo();
         return ResultResponseUtil.success(info);

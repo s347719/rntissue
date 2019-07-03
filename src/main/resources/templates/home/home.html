@@ -1,5 +1,5 @@
-<div class="row">
-    <div class="col-sm-3">
+<div id="homecontent" class="row" style="height: 100%;margin: 0">
+    <div class="col-sm-2" style="padding: 0px">
         <div class="sidebar-collapse">
             <ul class="nav" id="side-menu">
                 <li class="logo">
@@ -7,10 +7,10 @@
                 </li>
                 <li>
                     <div class="user-panel">
-                        <a class="menuItem" title="个人中心" ">
+                        <a class="menuItem" title="个人中心">
                             <div class="hide" text="个人中心"></div>
                             <div class="pull-left image">
-                                <img ng-src="headurl" class="img-circle" alt="User Image">
+                                <img ng-src="{{headurl}}" class="img-circle" alt="User Image">
                             </div>
                         </a>
                         <div class="pull-left info">
@@ -20,12 +20,58 @@
                         </div>
                     </div>
                 </li>
+                <li>
+                    <ul class="nav">
+                        <li> <a>第一层</a></li>
+                        <li> <a>第一层</a></li>
+                        <li> <a>第一层</a></li>
+                        <li> <a>第一层</a></li>
+                        <li> <a>第一层</a></li>
+                        <li> <a>第一层</a></li>
+                        <li> <a>第一层</a></li>
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </div>
-    <div class="col-sm-9">
+    <div class="col-sm-11" style="padding: 0">
+        <div class="row border-bottom" style="background: #367fa9; margin: 0">
+            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0;width: 100%">
+                <ul class="nav navbar-top-links navbar-right welcome-message">
+                    <li><a title="全屏显示" ng-click="fullscreen()"><i class="fa fa-arrows-alt"></i> 全屏显示</a></li>
+                    <li style="float: right" class="dropdown user-menu">
+                        <a href="javascript:void(0)" class="dropdown-toggle" data-hover="dropdown">
+                            <img ng-src="{{headurl}}" class="user-image">
+                            <span class="hidden-xs">{{userName}}</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="mt5">
+                                <a  class="menuItem">
+                                    <i class="fa fa-user"></i> 个人中心</a>
+                            </li>
+                            <li>
+                                <a onclick="resetPwd()" class="menuItem">
+                                    <i class="fa fa-key"></i> 修改密码</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a ng-click="logout()">
+                                    <i class="fa fa-sign-out"></i> 退出登录</a>
+                            </li>
+                        </ul>
+                    </li>
 
-        <div ui-view></div>
+                </ul>
+            </nav>
+        </div>
+
+        <div >
+
+            <ui-view/>
+
+
+        </div>
 
     </div>
 </div>

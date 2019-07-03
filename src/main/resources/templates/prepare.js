@@ -25,7 +25,7 @@ config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 
 function config($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.hashPrefix('');
-    $urlRouterProvider.otherwise('/');
+    $urlRouterProvider.otherwise('/home/main');
     $stateProvider
         .state("splash", {
             url: "/",

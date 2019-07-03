@@ -12,8 +12,8 @@ public interface CardDao extends PagingAndSortingRepository<Card, Integer> {
 
 
     //根据关联id查找所有属于他的卡，根据是否领取排序
-    @Query("SELECT c from Card c where c.fUserID= ?1 order by c.fIsUsed DESC ")
-    List<Card> findAllByFUserIDEqualsOrderByFIsUsedDesc(String tell);
+    @Query("SELECT distinct c from Card c where c.fUserTel= ?1 order by c.fIsUsed DESC ")
+    List<Card> findCardByTel(String tell);
 
 
     //根据卡号查找

@@ -23,7 +23,7 @@ public class StoreTeacherController {
         return ResultResponseUtil.success(teacherByName);
     }
 
-    @RequestMapping()
+    @RequestMapping(value = "/all")
     public String getAll() {
         List<StoreTeacher> all = storeTeacherService.findAll();
         return ResultResponseUtil.success(all);

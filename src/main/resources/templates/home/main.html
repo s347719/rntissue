@@ -1,0 +1,65 @@
+<div>
+
+    <div class="row  border-bottom white-bg dashboard-header" style="margin: 0; min-height: 200px;">
+
+
+        <div class="list card">
+            <div class="item item-body">
+                <img class="full-image" ng-src="./static/img/profile.jpg">
+            </div>
+        </div>
+
+        <div class="list card">
+
+            <div class="item item-body">
+                <ul class="list">
+                    <li class="item">
+                        <span class="text-info">地址：</span>
+                        {{storeinfo.fAddress}}
+                    </li>
+                    <li class="item">
+                        <span class="text-info">联系电话：</span>
+                        {{storeinfo.fLinkTell}}
+                    </li>
+                    <li class="item">
+                        <span class="text-info">座机电话：</span>
+                        {{storeinfo.fOfficeTell}}
+                    </li>
+                    <li class="item">
+                        <span class="text-info">营业时间：</span>
+                        {{storeinfo.fYeTimeMemo}}
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class=" row wrapper wrapper-content" style="margin: 0">
+
+        <div class="col-sm-4">
+            <h2>Hello,Guest</h2>
+            <div class="alert alert-warning no-margins" >
+                <small>移动设备访问请扫描以下二维码：</small>
+            </div>
+            <br>
+            <a ng-click="img_pop()"><img ng-src="./static/img/profile.jpg" width="100%" style="max-width:260px;" alt="二维码" >
+            </a>
+            <br>
+        </div>
+
+        <div class="col-sm-9">
+            <h4>所有老师：</h4>
+            <ol>
+                <li ng-repeat="user in users">
+                    <p>
+                        姓名：{{user.username}} 电话：{{user.fTell}}
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+
+</div>

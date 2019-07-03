@@ -17,6 +17,12 @@
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html"/>
     <![endif]-->
+    <style>
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+    </style>
     <link rel="shortcut icon" href="static/favicon.ico"/>
     <script>
         if (window.top !== window.self) {
@@ -38,13 +44,16 @@
     <script src="static/libs/validate/messages_zh.min.js"></script>
     <script src="static/libs/layer/layer.min.js"></script>
     <script src="static/libs/blockUI/jquery.blockUI.js"></script>
+    <script src="static/libs/fullscreen/jquery.fullscreen.js"></script>
+    <script src="static/ruoyi/js/ry-ui.js"></script>
+    <script src="static/ruoyi/js/common.js"></script>
     <script src="prepare.js"></script>
     <script src="home/home.js"></script>
 
 </head>
 
 <body>
-<div ui-view></div>
+<div style="height: 100%" ui-view></div>
 
 </body>
 
